@@ -1,43 +1,51 @@
 import { Tabs } from 'expo-router';
-import React from 'react';
-import { Platform } from 'react-native';
 
-import { HapticTab } from '@/components/HapticTab';
-import { IconSymbol } from '@/components/ui/IconSymbol';
-import TabBarBackground from '@/components/ui/TabBarBackground';
-import { Colors } from '@/constants/Colors';
-import { useColorScheme } from '@/hooks/useColorScheme';
+import Ionicons from '@expo/vector-icons/Ionicons';
 
 export default function TabLayout() {
-  const colorScheme = useColorScheme();
-
   return (
-    <Tabs
-      screenOptions={{
-        tabBarActiveTintColor: Colors[colorScheme ?? 'light'].tint,
-        headerShown: false,
-        tabBarButton: HapticTab,
-        tabBarBackground: TabBarBackground,
-        tabBarStyle: Platform.select({
-          ios: {
-            // Use a transparent background on iOS to show the blur effect
-            position: 'absolute',
+      <Tabs
+        screenOptions={{
+          tabBarActiveTintColor: '#fff',
+          headerStyle: {
+            backgroundColor: '#fff',
           },
-          default: {},
-        }),
-      }}>
+          headerTitleStyle: {
+            color: '#387F39',
+            fontSize: 20,
+            fontWeight: 'bold',
+          },
+          headerShadowVisible: true,
+          tabBarStyle: {
+            backgroundColor: '#387F39',
+            height: 80,
+            borderRadius: 10,
+            paddingTop: 15,
+            margin: 18,
+          },
+          tabBarLabelStyle: {
+            fontSize: 12,
+            marginBottom: 5,
+          },
+        }}
+      > 
+
       <Tabs.Screen
         name="index"
         options={{
-          title: 'Home',
-          tabBarIcon: ({ color }) => <IconSymbol size={28} name="house.fill" color={color} />,
+          title: 'Balance',
+          tabBarIcon: ({ color, focused }) => (
+            <Ionicons name={focused ? 'wallet' : 'wallet-outline'} color={color} size={24} />
+          ),
         }}
       />
       <Tabs.Screen
-        name="explore"
+        name="transactions"
         options={{
-          title: 'Explore',
-          tabBarIcon: ({ color }) => <IconSymbol size={28} name="paperplane.fill" color={color} />,
+          title: 'Transactions',
+          tabBarIcon: ({ color, focused }) => (
+            <Ionicons name={focused ? 'swap-vertical' : 'swap-vertical-outline'} color={color} size={24} />
+          ),
         }}
       />
     </Tabs>
