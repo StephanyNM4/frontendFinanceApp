@@ -35,7 +35,7 @@ export default function TabLayout() {
         options={{
           title: 'Dashboard',
           tabBarIcon: ({ color, focused }) => (
-            <Ionicons name={focused ? 'wallet' : 'wallet-outline'} color={color} size={24} />
+            <Ionicons name={focused ? 'wallet' : 'wallet-outline'} color={color} size={28} />
           ),
         }}
       />
@@ -44,7 +44,7 @@ export default function TabLayout() {
         options={{
           title: 'Transactions',
           tabBarIcon: ({ color, focused }) => (
-            <Ionicons name={focused ? 'swap-vertical' : 'swap-vertical-outline'} color={color} size={24} />
+            <Ionicons name={focused ? 'swap-vertical' : 'swap-vertical-outline'} color={color} size={28} />
           ),
         }}
       />

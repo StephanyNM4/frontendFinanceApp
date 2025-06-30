@@ -1,20 +1,9 @@
-import { StyleSheet, Text, View } from 'react-native';
+import { Text, View } from 'react-native';
 
 export default function TransactionScreen() {
     return (
-        <View style={styles.container}>
-        <Text style={styles.text}>Transaction screen</Text>
+        <View className='flex-1 items-center justify-center'>
+        <Text className='text-black'>Transaction screen update</Text>
         </View>
     );
-    }
-
-    const styles = StyleSheet.create({
-    container: {
-        flex: 1,
-        justifyContent: 'center',
-        alignItems: 'center',
-    },
-    text: {
-        color: '#000',
-    },
-});
+    };
