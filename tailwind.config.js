@@ -15,7 +15,10 @@ module.exports = {
       },
       fontFamily: {
         sans: ['Montserrat_400Regular'],
-    },
+      },
+      boxShadow: {
+        custom: "0px 4px 6px rgba(0, 0, 0, 0.1)",
+      },
     },
   },
   plugins: [],

@@ -1,47 +1,37 @@
 import FontAwesome5 from '@expo/vector-icons/FontAwesome5';
-import { Text, View } from 'react-native';
+import { Pressable, Text, View } from 'react-native';
 
-export default function DashboardButton() {
+type Props = {
+  selected: 'expenses' | 'incomes';
+  onSelectType: (type: 'expenses' | 'incomes') => void;
+};
+
+export default function DashboardButton({ selected, onSelectType }: Props) {
     return (
-        <View className='w-full h-28 flex flex-row bg-tertiary rounded-lg mt-8'>/
+        <View className='w-full h-24 flex flex-row bg-tertiary rounded-lg'>
         
-            <View className='w-1/2 bg-secondary p-6 rounded-xl'>
-                
-                <View className='w-full flex flex-row'>
-                    <FontAwesome5 name="balance-scale-left" size={22} color="white" />
-
-                    <View className='flex-1 items-center justify-center'>
-                        <Text className='text-white font-bold text-xl'>Expenses</Text>
-                    </View>
-                </View>
-                
-                
-
-                <View className='flex-1 items-center justify-center pt-2'>
-                    <Text className='text-white font-medium text-2xl'>L.100000</Text>
-                </View>
-
+        <Pressable
+            onPress={() => onSelectType("expenses")}
+            className={`w-1/2 p-4 rounded-xl ${selected === "expenses" ? "bg-secondary" : ""}`}
+        >
+            <View className='flex flex-row items-center'>
+            <FontAwesome5 name="balance-scale-left" size={20} color="white" />
+            <Text className='text-white font-bold text-xl ml-2'>Expenses</Text>
             </View>
+            <Text className='text-white text-2xl pt-2 text-center'>L.100000</Text>
+        </Pressable>
 
-            <View className='w-1/2 p-6'>
-                
-                <View className='w-full flex flex-row'>
-                    <FontAwesome5 name="balance-scale" size={22} color="white" />
-
-                    <View className='flex-1 items-center justify-center'>
-                        <Text className='text-white font-bold text-xl'>Incomes</Text>
-                    </View>
-                </View>
-                
-                
-
-                <View className='flex-1 items-center justify-center pt-2'>
-                    <Text className='text-white font-medium text-2xl'>L.50000</Text>
-                </View>
-
+        <Pressable
+            onPress={() => onSelectType("incomes")}
+            className={`w-1/2 p-4 rounded-xl ${selected === "incomes" ? "bg-secondary" : ""}`}
+        >
+            <View className='flex flex-row items-center'>
+            <FontAwesome5 name="balance-scale" size={20} color="white" />
+            <Text className='text-white font-bold text-xl ml-2'>Incomes</Text>
             </View>
+            <Text className='text-white text-2xl pt-2 text-center'>L.50000</Text>
+        </Pressable>
+
         </View>
-
-        
     );
-    };
+}

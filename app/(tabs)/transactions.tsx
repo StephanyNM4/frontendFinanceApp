@@ -1,9 +1,14 @@
-import { Text, View } from 'react-native';
+import { ScrollView } from 'react-native';
+import TransactionForm from '../../components/TransactionForm';
 
-export default function TransactionScreen() {
-    return (
-        <View className='flex-1 items-center justify-center'>
-        <Text className='text-black'>Transaction screen update</Text>
-        </View>
-    );
+export default function AddTransaction() {
+    const handleTransaction = async (data: any) => {
+        console.log('Nueva transacción:', data);
     };
+
+    return (
+        <ScrollView className="bg-white h-full">
+            <TransactionForm onSubmit={handleTransaction} />
+        </ScrollView>
+    );
+}
